@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Yuvraj Mohana - Creative Developer & Designer. Crafting beautiful digital experiences with modern web technologies.">
+    <meta name="keywords"
+        content="Yuvraj Mohana, web developer, creative developer, UI/UX designer, portfolio, React, JavaScript, TypeScript, web design">
+    <meta name="author" content="Yuvraj Mohana">
+    <meta name="theme-color" content="#8b5cf6">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yuvrajmohana.com/">
+    <meta property="og:title" content="Yuvraj Mohana - Creative Developer & Designer">
+    <meta property="og:description"
+        content="Crafting beautiful digital experiences with modern web technologies. Passionate about creating innovative solutions.">
+    <meta property="og:image" content="https://yuvrajmohana.com/assets/yuvraj.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yuvrajmohana.com/">
+    <meta property="twitter:title" content="Yuvraj Mohana - Creative Developer & Designer">
+    <meta property="twitter:description" content="Crafting beautiful digital experiences with modern web technologies.">
+    <meta property="twitter:image" content="https://yuvrajmohana.com/assets/yuvraj.png">
+
+    <title>Yuvraj Mohana - Creative Developer & Designer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">YM</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Full-screen portrait background -->
+        <div class="hero-image-bg">
+            <img src="assets/yuvraj.png" alt="Yuvraj Mohana" class="hero-image-fullscreen">
+        </div>
+
+        <!-- Background text layer (behind portrait) -->
+        <div class="hero-bg-text">YUVRAJ MOHANA</div>
+
+        <!-- Content overlay -->
+        <div class="hero-overlay">
+            <div class="container">
+                <div class="hero-content-centered">
+                    <h1 class="hero-title">
+                        Creative Developer
+                        <br>
+                        & Designer
+                    </h1>
+                    <p class="hero-description">
+                        Crafting beautiful digital experiences with modern web technologies.
+                        Passionate about creating innovative solutions that blend aesthetics with functionality.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-card fade-in">
+                    <div class="card-icon">🎨</div>
+                    <h3 class="card-title">Design</h3>
+                    <p class="card-description">
+                        Creating stunning visual experiences with attention to detail and modern aesthetics.
+                    </p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="card-icon">💻</div>
+                    <h3 class="card-title">Development</h3>
+                    <p class="card-description">
+                        Building robust, scalable applications with cutting-edge technologies and best practices.
+                    </p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="card-icon">🚀</div>
+                    <h3 class="card-title">Innovation</h3>
+                    <p class="card-description">
+                        Pushing boundaries with creative solutions that solve real-world problems.
+                    </p>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <h3 class="subsection-title">Skills & Technologies</h3>
+                <div class="skills-grid">
+                    <div class="skill-item fade-in">JavaScript</div>
+                    <div class="skill-item fade-in">React</div>
+                    <div class="skill-item fade-in">Node.js</div>
+                    <div class="skill-item fade-in">TypeScript</div>
+                    <div class="skill-item fade-in">CSS/SASS</div>
+                    <div class="skill-item fade-in">Python</div>
+                    <div class="skill-item fade-in">UI/UX Design</div>
+                    <div class="skill-item fade-in">Three.js</div>
+                    <div class="skill-item fade-in">Next.js</div>
+                    <div class="skill-item fade-in">Git</div>
+                    <div class="skill-item fade-in">Figma</div>
+                    <div class="skill-item fade-in">WebGL</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <div class="project-placeholder">🎯</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI-Powered Dashboard</h3>
+                        <p class="project-description">
+                            Modern analytics dashboard with real-time data visualization and AI insights.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">D3.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <div class="project-placeholder">🎮</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">3D Interactive Experience</h3>
+                        <p class="project-description">
+                            Immersive 3D web experience with physics-based interactions and animations.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Three.js</span>
+                            <span class="tag">WebGL</span>
+                            <span class="tag">GSAP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <div class="project-placeholder">🌐</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">
+                            Full-stack e-commerce solution with payment integration and admin dashboard.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Next.js</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <div class="project-placeholder">📱</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Mobile App Design</h3>
+                        <p class="project-description">
+                            Beautiful mobile app design system with component library and documentation.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">UI/UX</span>
+                            <span class="tag">Design System</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">
+                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            </p>
+            <div class="contact-grid">
+                <a href="mailto:yuvraj@example.com" class="contact-link fade-in">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-info">
+                        <h3>Email</h3>
+                        <p>yuvraj@example.com</p>
+                    </div>
+                </a>
+                <a href="https://linkedin.com/in/yuvrajmohana" target="_blank" rel="noopener noreferrer"
+                    class="contact-link fade-in">
+                    <div class="contact-icon">💼</div>
+                    <div class="contact-info">
+                        <h3>LinkedIn</h3>
+                        <p>@yuvrajmohana</p>
+                    </div>
+                </a>
+                <a href="https://github.com/yuvrajmohana" target="_blank" rel="noopener noreferrer"
+                    class="contact-link fade-in">
+                    <div class="contact-icon">💻</div>
+                    <div class="contact-info">
+                        <h3>GitHub</h3>
+                        <p>@yuvrajmohana</p>
+                    </div>
+                </a>
+                <a href="https://twitter.com/yuvrajmohana" target="_blank" rel="noopener noreferrer"
+                    class="contact-link fade-in">
+                    <div class="contact-icon">🐦</div>
+                    <div class="contact-info">
+                        <h3>Twitter</h3>
+                        <p>@yuvrajmohana</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Yuvraj Mohana. Crafted with passion and precision.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
