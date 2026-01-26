@@ -253,16 +253,62 @@ function throttle(func, limit) {
 }
 
 // ===================================
-// PAGE LOAD ANIMATION
+// PRELOADER & HERO REVEAL
 // ===================================
-window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease-in';
+window.addEventListener('DOMContentLoaded', () => {
+    const loader = document.getElementById('loader');
+    const hero = document.querySelector('.hero');
 
+    // Lock scroll during preloader
+    document.body.style.overflow = 'hidden';
+
+    // 1.5 Second Loader Duration
     setTimeout(() => {
-        document.body.style.opacity = '1';
-    }, 100);
+        if (loader) {
+            loader.classList.add('fade-out');
+
+            // Allow scroll again
+            document.body.style.overflow = '';
+
+            // Wait for fade animation to finish then remove from DOM
+            setTimeout(() => {
+                loader.style.display = 'none';
+
+                // Trigger Hero Reveal Animation
+                if (hero) {
+                    hero.classList.add('revealed');
+                }
+            }, 800);
+        }
+    }, 1500);
 });
+
+// ===================================
+// HERO DETAIL REVEAL (Side Details)
+// ===================================
+const handleHeroDetailReveal = () => {
+    const sideDetails = document.querySelectorAll('.side-detail');
+    const scrollY = window.scrollY;
+
+    sideDetails.forEach(detail => {
+        // Trigger reveal immediately (10px) for a snappy response
+        if (scrollY > 10) {
+            detail.classList.add('revealed');
+        } else {
+            detail.classList.remove('revealed');
+        }
+    });
+
+    // Handle Socials reveal
+    const socials = document.getElementById('heroSocials');
+    if (socials && scrollY > 10) {
+        socials.classList.add('revealed'); // Direct class on the element
+    } else if (socials) {
+        socials.classList.remove('revealed');
+    }
+};
+
+window.addEventListener('scroll', throttle(handleHeroDetailReveal, 10));
 
 // ===================================
 // ACTIVE SECTION HIGHLIGHTING IN NAV
@@ -290,6 +336,36 @@ const highlightNav = debounce(() => {
 }, 100);
 
 window.addEventListener('scroll', highlightNav);
+
+// ===================================
+// NAV REVEAL LOGIC (After 20px)
+// ===================================
+const toggleNavVisibility = () => {
+    const nav = document.getElementById('nav');
+    if (window.scrollY > 20) {
+        nav.classList.add('visible');
+    } else {
+        nav.classList.remove('visible');
+    }
+};
+
+window.addEventListener('scroll', throttle(toggleNavVisibility, 10));
+
+// ===================================
+// HERO PARALLAX EFFECT
+// ===================================
+const hero = document.querySelector('.hero');
+if (hero) {
+    hero.addEventListener('mousemove', (e) => {
+        // Calculate mouse position relative to window center (-1 to 1)
+        const x = (e.clientX / window.innerWidth) * 2 - 1;
+        const y = (e.clientY / window.innerHeight) * 2 - 1;
+
+        // Update CSS variables
+        hero.style.setProperty('--mouse-x', x);
+        hero.style.setProperty('--mouse-y', y);
+    });
+}
 
 // ===================================
 // CONSOLE EASTER EGG
@@ -323,3 +399,5 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('mousedown', () => {
     document.body.classList.remove('keyboard-nav');
 });
+
+
