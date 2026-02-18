@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects - Yuvraj Mohana</title>
+
+    <!-- Using same styles -->
+    <link rel="stylesheet" href="style.css?v=3.1">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,700;1,900&family=Space+Grotesk:wght@400;500;600;700;900&family=Syne:wght@400..800&family=Inter:wght@300;400;500;600&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Preloader (Optional, maybe shorter or removed for internal nav) -->
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" data-transition="true">YM</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link" data-transition="true">Home</a></li>
+                <li><a href="index.html#about" class="nav-link" data-transition="true">About</a></li>
+                <li><a href="index.html#projects" class="nav-link active" data-transition="true">Projects</a></li>
+                <li><a href="index.html#contact" class="nav-link" data-transition="true">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main style="padding-top: 150px; min-height: 100vh;">
+        <div class="container">
+            <!-- Header & Toggle -->
+            <div class="projects-header"
+                style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 5rem; padding: 0 5vw;">
+                <div style="display: flex; gap: 2rem; align-items: baseline;">
+                    <a href="index.html" class="toggle-btn" style="font-size: 1.5rem; text-decoration: none;"
+                        data-transition="true">← Back</a>
+                    <h1 class="project-heading" style="font-size: 5rem;">All Works</h1>
+                </div>
+
+                <div class="view-toggle">
+                    <button class="toggle-btn active" id="btn-list" aria-label="List View">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
+                        </svg>
+                    </button>
+                    <button class="toggle-btn" id="btn-grid" aria-label="Grid View">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M4 4h7v7H4V4zm0 9h7v7H4v-7zm9-9h7v7h-7V4zm0 9h7v7h-7v-7z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Projects (Defaults to List Class) -->
+            <div class="project-list-container" id="all-projects-container">
+                <div class="project-list" id="projects-wrapper">
+
+                    <!-- Existing Projects -->
+                    <div class="project-item" data-image="assets/project_dayone.png">
+                        <img src="assets/project_dayone.png" class="project-img-static" alt="DayOne">
+                        <div class="project-info">
+                            <h3 class="project-name">DayOne</h3>
+                            <p class="project-cat">FullStack Developement</p>
+                        </div>
+                    </div>
+
+                    <div class="project-item" data-image="assets/project_naturalshine.png">
+                        <img src="assets/project_naturalshine.png" class="project-img-static" alt="Natural Shine">
+                        <div class="project-info">
+                            <h3 class="project-name">Natural Shine</h3>
+                            <p class="project-cat">Design & Databases</p>
+                        </div>
+                    </div>
+
+                    <div class="project-item" data-image="assets/project_portfolio.png">
+                        <img src="assets/project_portfolio.png" class="project-img-static" alt="PORTFOLIO">
+                        <div class="project-info">
+                            <h3 class="project-name">PORTFOLIO</h3>
+                            <p class="project-cat">Design & Development</p>
+                        </div>
+                    </div>
+
+                    <!-- Extra Placeholders for Demo -->
+                    <div class="project-item"
+                        data-image="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop"
+                            class="project-img-static" alt="Neon Dreams">
+                        <div class="project-info">
+                            <h3 class="project-name">Neon Dreams</h3>
+                            <p class="project-cat">Concept Art</p>
+                        </div>
+                    </div>
+
+                    <div class="project-item"
+                        data-image="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=1000&auto=format&fit=crop">
+                        <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=1000&auto=format&fit=crop"
+                            class="project-img-static" alt="Cyber Bold">
+                        <div class="project-info">
+                            <h3 class="project-name">Cyber Bold</h3>
+                            <p class="project-cat">Typography</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Image Modal (Reused) -->
+    <div class="project-modal">
+        <div class="modal-inner">
+            <img src="" alt="Project Preview" id="modal-image">
+            <div class="modal-cursor-view">View</div>
+        </div>
+    </div>
+
+    <!-- Page Transition Overlay -->
+    <div class="transition-overlay">
+        <div class="transition-color"></div>
+        <div class="transition-text"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Yuvraj Mohana. Crafted with passion and precision.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Inline script to handle Toggle specifically for this page (or could be in main script)
+        const btnList = document.getElementById('btn-list');
+        const btnGrid = document.getElementById('btn-grid');
+        const wrapper = document.getElementById('projects-wrapper');
+        const container = document.getElementById('all-projects-container');
+
+        if (btnList && btnGrid && wrapper) {
+            btnList.addEventListener('click', () => {
+                wrapper.classList.remove('grid-view');
+                wrapper.classList.add('project-list');
+                btnList.classList.add('active');
+                btnGrid.classList.remove('active');
+            });
+
+            btnGrid.addEventListener('click', () => {
+                wrapper.classList.remove('project-list');
+                wrapper.classList.add('grid-view');
+                btnGrid.classList.add('active');
+                btnList.classList.remove('active');
+            });
+        }
+    </script>
+</body>
+
+</html>

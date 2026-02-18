@@ -32,13 +32,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,700;1,900&family=Space+Grotesk:wght@400;500;600;700;900&family=Syne:wght@400..800&family=Inter:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,700;1,900&family=Space+Grotesk:wght@400;500;600;700;900&family=Syne:wght@400..800&family=Inter:wght@300;400;500;600&family=Press+Start+2P&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3.4">
 </head>
 
 <body>
+    <!-- Ambient Background -->
+    <div class="ambient-bg">
+        <div class="ambient-orb orb-1"></div>
+        <div class="ambient-orb orb-2"></div>
+        <div class="ambient-orb orb-3"></div>
+    </div>
     <!-- Preloader -->
     <div id="loader" class="loader">
         <div class="loader-content">
@@ -70,6 +76,15 @@
         <!-- Layer 2: Billboard Marquee Text -->
         <div class="marquee-wrapper">
             <div class="marquee-content">
+                <span>YUVRAJ MOHANA</span>
+                <span>YUVRAJ MOHANA</span>
+                <span>YUVRAJ MOHANA</span>
+                <span>YUVRAJ MOHANA</span>
+                <span>YUVRAJ MOHANA</span>
+                <span>YUVRAJ MOHANA</span>
+                <!-- Duplicated for seamless loop -->
+                <span>YUVRAJ MOHANA</span>
+                <span>YUVRAJ MOHANA</span>
                 <span>YUVRAJ MOHANA</span>
                 <span>YUVRAJ MOHANA</span>
                 <span>YUVRAJ MOHANA</span>
@@ -127,185 +142,299 @@
     <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <div class="about-main-wrapper">
+                <!-- Left Column: Header + Bio -->
+                <div class="about-left-col">
+                    <div class="section-header fade-in">
+                        <span class="section-number">01</span>
+                        <h2 class="section-title"
+                            style="color: #ffffff !important; background: none !important; -webkit-text-fill-color: #ffffff !important; background-clip: border-box !important; -webkit-background-clip: border-box !important;">
+                            About Me</h2>
+                    </div>
 
-            <!-- About Section -->
-            <section class="section" id="about">
-                <div class="container">
-                    <h2 class="section-title">About Me</h2>
-                    <div class="about-grid">
-                        <div class="about-card fade-in">
-                            <div class="card-icon">🎨</div>
-                            <h3 class="card-title">Design</h3>
-                            <p class="card-description">
-                                Creating stunning visual experiences with attention to detail and modern aesthetics.
-                            </p>
+                    <div class="about-text-column fade-in">
+                        <p class="about-bio">
+                            I’m Yuvraj Mohana. <br>
+                            I build thoughtful digital experiences that sit between design and code.
+                        </p>
+                        <p class="about-bio">
+                            I work with modern web tools to create booking systems, content-driven sites, and
+                            interactive interfaces—from idea to deployment. I care about clarity, performance, and
+                            making things feel right to use.
+                        </p>
+                        <p class="about-bio">
+                            I use AI and low-code tools as part of my workflow—not to rush, but to think better. If
+                            something doesn’t help the user or the idea, it doesn’t stay.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Tech Stack -->
+                <div class="skills-column fade-in">
+                    <h4 class="subsection-title">Tech Stack</h4>
+                    <div class="arcade-chase">
+                        <div class="pacman-yellow"></div>
+                        <div class="pacman-red"></div>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-tag yellow">
+                            JavaScript
+                            <div class="skill-popup">
+                                <p>Endorsed in: DayOne, Salon Website, Portfolio</p>
+                                <p class="status">Status: Intermediate</p>
+                                <a href="#projects" class="popup-btn">View Projects</a>
+                            </div>
                         </div>
-                        <div class="about-card fade-in">
-                            <div class="card-icon">💻</div>
-                            <h3 class="card-title">Development</h3>
-                            <p class="card-description">
-                                Building robust, scalable applications with cutting-edge technologies and best
-                                practices.
-                            </p>
+                        <div class="skill-tag yellow">
+                            Python
+                            <div class="skill-popup">
+                                <p>Endorsed in: Aim trainer</p>
+                                <p class="status">Status: Advanced</p>
+                                <a href="#projects" class="popup-btn">View Projects</a>
+                            </div>
                         </div>
-                        <div class="about-card fade-in">
-                            <div class="card-icon">🚀</div>
-                            <h3 class="card-title">Innovation</h3>
-                            <p class="card-description">
-                                Pushing boundaries with creative solutions that solve real-world problems.
-                            </p>
+                        <div class="skill-tag blue">
+                            React.js
+                            <div class="skill-popup">
+                                <p>Endorsed in: DayOne, Portfolio</p>
+                                <p class="status">Status: Intermediate</p>
+                                <a href="#projects" class="popup-btn">View Projects</a>
+                            </div>
+                        </div>
+                        <div class="skill-tag blue">
+                            Next.js
+                            <div class="skill-popup">
+                                <p>Endorsed in: DayOne, Salon Website</p>
+                                <p class="status">Status: Intermediate</p>
+                                <a href="#projects" class="popup-btn">View Projects</a>
+                            </div>
+                        </div>
+                        <div class="skill-tag red">
+                            Node.js
+                            <div class="skill-popup">
+                                <p>Endorsed in: MeetMate</p>
+                                <p class="status">Status: Intermediate</p>
+                                <a href="#projects" class="popup-btn">View Projects</a>
+                            </div>
+                        </div>
+                        <div class="skill-tag purple">
+                            WebGL
+                            <div class="skill-popup">
+                                <p>Endorsed in: Portfolio</p>
+                                <p class="status">Status: Intermediate</p>
+                                <a href="#projects" class="popup-btn">View Projects</a>
+                            </div>
+                        </div>
+                        <div class="skill-tag purple">
+                            Three.js
+                            <div class="skill-popup">
+                                <p>Endorsed in: Portfolio</p>
+                                <p class="status">Status: Intermediate</p>
+                                <a href="#projects" class="popup-btn">View Projects</a>
+                            </div>
+                        </div>
+                        <div class="skill-tag green">
+                            Git
+                            <div class="skill-popup">
+                                <p>Used in: All Projects</p>
+                                <p class="status">Status: Advanced</p>
+                                <a href="#projects" class="popup-btn">View Projects</a>
+                            </div>
+                        </div>
+                        <div class="skill-tag green">
+                            Vite
+                            <div class="skill-popup">
+                                <p>Endorsed in: DayOne, Salon</p>
+                                <p class="status">Status: Advanced</p>
+                                <a href="#projects" class="popup-btn">View Projects</a>
+                            </div>
+                        </div>
+                        <div class="skill-tag green">
+                            SQL
+                            <div class="skill-popup">
+                                <p>Endorsed in: DayOne, Salon</p>
+                                <p class="status">Status: Advanced</p>
+                                <a href="#projects" class="popup-btn">View Projects</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="skills-section">
-                        <h3 class="subsection-title">Skills & Technologies</h3>
-                        <div class="skills-grid">
-                            <div class="skill-item fade-in">JavaScript</div>
-                            <div class="skill-item fade-in">React</div>
-                            <div class="skill-item fade-in">Node.js</div>
-                            <div class="skill-item fade-in">TypeScript</div>
-                            <div class="skill-item fade-in">CSS/SASS</div>
-                            <div class="skill-item fade-in">Python</div>
-                            <div class="skill-item fade-in">UI/UX Design</div>
-                            <div class="skill-item fade-in">Three.js</div>
-                            <div class="skill-item fade-in">Next.js</div>
-                            <div class="skill-item fade-in">Git</div>
-                            <div class="skill-item fade-in">Figma</div>
-                            <div class="skill-item fade-in">WebGL</div>
+                    <!-- Retro Mario Animation -->
+                    <div class="mario-scene">
+                        <div class="mario-layer">
+                            <div class="mario-sprite"></div>
                         </div>
+                        <div class="obstacle-layer">
+                            <div class="pipe-sprite"></div>
+                            <div class="goomba-sprite"></div>
+                        </div>
+                        <div class="ground-layer"></div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
 
-            <!-- Projects Section -->
-            <section class="section" id="projects">
-                <div class="container">
-                    <h2 class="section-title">Featured Projects</h2>
-                    <div class="projects-grid">
-                        <div class="project-card fade-in">
-                            <div class="project-image">
-                                <div class="project-placeholder">🎯</div>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">AI-Powered Dashboard</h3>
-                                <p class="project-description">
-                                    Modern analytics dashboard with real-time data visualization and AI insights.
-                                </p>
-                                <div class="project-tags">
-                                    <span class="tag">React</span>
-                                    <span class="tag">TypeScript</span>
-                                    <span class="tag">D3.js</span>
-                                </div>
-                            </div>
-                        </div>
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="project-title-container">
+            <div class="title-stack">
+                <h2 class="project-heading main">PROJECTS</h2>
+                <h2 class="project-heading echo" aria-hidden="true">PROJECTS</h2>
+                <h2 class="project-heading echo" aria-hidden="true">PROJECTS</h2>
+                <h2 class="project-heading echo" aria-hidden="true">PROJECTS</h2>
+            </div>
+        </div>
 
-                        <div class="project-card fade-in">
-                            <div class="project-image">
-                                <div class="project-placeholder">🎮</div>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">3D Interactive Experience</h3>
-                                <p class="project-description">
-                                    Immersive 3D web experience with physics-based interactions and animations.
-                                </p>
-                                <div class="project-tags">
-                                    <span class="tag">Three.js</span>
-                                    <span class="tag">WebGL</span>
-                                    <span class="tag">GSAP</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-card fade-in">
-                            <div class="project-image">
-                                <div class="project-placeholder">🌐</div>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">E-Commerce Platform</h3>
-                                <p class="project-description">
-                                    Full-stack e-commerce solution with payment integration and admin dashboard.
-                                </p>
-                                <div class="project-tags">
-                                    <span class="tag">Next.js</span>
-                                    <span class="tag">Node.js</span>
-                                    <span class="tag">MongoDB</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-card fade-in">
-                            <div class="project-image">
-                                <div class="project-placeholder">📱</div>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Mobile App Design</h3>
-                                <p class="project-description">
-                                    Beautiful mobile app design system with component library and documentation.
-                                </p>
-                                <div class="project-tags">
-                                    <span class="tag">Figma</span>
-                                    <span class="tag">UI/UX</span>
-                                    <span class="tag">Design System</span>
-                                </div>
-                            </div>
-                        </div>
+        <div class="project-list-container">
+            <div class="project-list">
+                <div class="project-item" data-image="assets/project_dayone.png">
+                    <div class="project-info">
+                        <h3 class="project-name">DayOne</h3>
+                        <p class="project-cat">FullStack Developement</p>
                     </div>
                 </div>
-            </section>
+                <div class="project-item" data-image="assets/project_naturalshine.png">
+                    <div class="project-info">
+                        <h3 class="project-name">Natural Shine</h3>
+                        <p class="project-cat">Design & Databases</p>
+                    </div>
+                </div>
+                <div class="project-item" data-image="assets/project_portfolio.png">
+                    <div class="project-info">
+                        <h3 class="project-name">PORTFOLIO</h3>
+                        <p class="project-cat">Design & Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <!-- Contact Section -->
-            <section class="section" id="contact">
-                <div class="container">
-                    <h2 class="section-title">Let's Connect</h2>
-                    <p class="section-subtitle">
-                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your
-                        vision.
-                    </p>
-                    <div class="contact-grid">
-                        <a href="mailto:yuvraj@example.com" class="contact-link fade-in">
-                            <div class="contact-icon">📧</div>
-                            <div class="contact-info">
-                                <h3>Email</h3>
-                                <p>yuvraj@example.com</p>
+        <!-- Floating Image Modal -->
+        <div class="project-modal">
+            <div class="modal-inner">
+                <img src="" alt="Project Preview" id="modal-image">
+
+            </div>
+        </div>
+
+        <div class="more-works-container" style="display: flex; justify-content: center; margin-top: 5rem;">
+            <a href="projects.html" class="btn btn-secondary rounded-pill" data-transition="true">More Works</a>
+        </div>
+
+    </section>
+
+    <!-- Page Transition Overlay -->
+    <div class="transition-overlay">
+        <div class="transition-color"></div>
+        <div class="transition-text"></div>
+    </div>
+
+    <!-- Contact Section: Start a Signal -->
+    <section class="section signal-section" id="contact">
+        <div class="container signal-container">
+            <h2 class="signal-title">Start a Signal</h2>
+            <p class="signal-subtext">Choose how you want to reach me.</p>
+
+            <div class="signal-area">
+                <div class="signal-core-wrapper">
+                    <div class="signal-core" id="signalCore">
+                        <div class="core-inner"></div>
+                        <div class="core-ring"></div>
+                        <div class="core-pulse"></div>
+                    </div>
+
+                    <!-- Contact Nodes (Orbiting/Radial) -->
+                    <div class="signal-nodes" id="signalNodes">
+                        <a href="mailto:yuvraj@example.com" class="signal-node" style="--i:1" data-label="Email">
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                </svg>
+                            </div>
+                            <div class="node-tooltip">
+                                <span class="tooltip-title">Email</span>
+                                <span class="tooltip-desc">For detailed conversations</span>
                             </div>
                         </a>
-                        <a href="https://linkedin.com/in/yuvrajmohana" target="_blank" rel="noopener noreferrer"
-                            class="contact-link fade-in">
-                            <div class="contact-icon">💼</div>
-                            <div class="contact-info">
-                                <h3>LinkedIn</h3>
-                                <p>@yuvrajmohana</p>
+                        <a href="https://www.linkedin.com/in/yuvrajmohana/" target="_blank" rel="noopener noreferrer"
+                            class="signal-node" style="--i:2" data-label="LinkedIn">
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg>
+                            </div>
+                            <div class="node-tooltip">
+                                <span class="tooltip-title">LinkedIn</span>
+                                <span class="tooltip-desc">For professional connections</span>
                             </div>
                         </a>
-                        <a href="https://github.com/yuvrajmohana" target="_blank" rel="noopener noreferrer"
-                            class="contact-link fade-in">
-                            <div class="contact-icon">💻</div>
-                            <div class="contact-info">
-                                <h3>GitHub</h3>
-                                <p>@yuvrajmohana</p>
+                        <a href="https://github.com/yuvifzy" target="_blank" rel="noopener noreferrer"
+                            class="signal-node" style="--i:3" data-label="GitHub">
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                            </div>
+                            <div class="node-tooltip">
+                                <span class="tooltip-title">GitHub</span>
+                                <span class="tooltip-desc">For code & collabs</span>
                             </div>
                         </a>
-                        <a href="https://twitter.com/yuvrajmohana" target="_blank" rel="noopener noreferrer"
-                            class="contact-link fade-in">
-                            <div class="contact-icon">🐦</div>
-                            <div class="contact-info">
-                                <h3>Twitter</h3>
-                                <p>@yuvrajmohana</p>
+                        <a href="https://www.instagram.com/yuvraj_mohana/" target="_blank" rel="noopener noreferrer"
+                            class="signal-node" style="--i:4" data-label="Instagram">
+                            <div class="node-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5zm8.5 4.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" />
+                                </svg>
+                            </div>
+                            <div class="node-tooltip">
+                                <span class="tooltip-title">Instagram</span>
+                                <span class="tooltip-desc">For casual stuff</span>
                             </div>
                         </a>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <!-- Footer -->
-            <footer class="footer">
-                <div class="container">
-                    <p>&copy; 2026 Yuvraj Mohana. Crafted with passion and precision.</p>
-                </div>
-            </footer>
+            <div class="signal-status">
+                <span class="status-dot"></span>
+                <span class="status-text" id="statusText">Status: Open to projects · Internships · Collaborations</span>
+            </div>
 
-            <script src="script.js"></script>
+            <p class="signal-cta">Don’t overthink it. Pick a channel and say hi.</p>
+
+            <!-- Easter Egg -->
+            <div class="easter-egg-container" id="easterEgg">
+                <div class="pixel-char">👾</div>
+                <div class="pixel-envelope">✉️</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Yuvraj Mohana. Crafted with passion and precision.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <!-- GSAP for Insane Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Lenis for Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <!-- Split Type for Text Animations -->
+    <script src="https://unpkg.com/split-type"></script>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -400,4 +400,456 @@ document.addEventListener('mousedown', () => {
     document.body.classList.remove('keyboard-nav');
 });
 
+// ===================================
+// TRIGGER TYPEWRITER ON SCROLL
+// ===================================
+const typeWriterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            typeWriterObserver.unobserve(entry.target); // Run only once
+        }
+    });
+}, { threshold: 0.5 }); // Trigger when 50% visible
 
+const aboutTitle = document.querySelector('#about .section-title');
+if (aboutTitle) {
+    typeWriterObserver.observe(aboutTitle);
+}
+
+// ===================================
+// HERO BLUR ON SCROLL
+// ===================================
+const heroSection = document.querySelector('.hero');
+const handleHeroBlur = () => {
+    if (heroSection) {
+        if (window.scrollY > 100) {
+            heroSection.classList.add('blur-out');
+        } else {
+            heroSection.classList.remove('blur-out');
+        }
+    }
+};
+
+window.addEventListener('scroll', throttle(handleHeroBlur, 10));
+
+
+
+// ===================================
+// PROJECTS HOVER REVEAL ANIMATIONS
+// ===================================
+const projectList = document.querySelector('.project-list');
+const projectItems = document.querySelectorAll('.project-item');
+const projectModal = document.querySelector('.project-modal');
+const modalImage = document.getElementById('modal-image');
+const titleStack = document.querySelector('.title-stack');
+
+// Title Echo Animation (Keep existing if relevant, or simplified)
+function handleEchoAnimation() {
+    if (!titleStack) return;
+    const windowHeight = window.innerHeight;
+    const rect = titleStack.getBoundingClientRect();
+    const top = rect.top;
+
+    // Only animate if near viewport
+    if (top < windowHeight && top > -300) {
+        const offsetBase = (windowHeight - top) * 0.25;
+        const echoes = titleStack.querySelectorAll('.echo');
+        echoes.forEach((echo, i) => {
+            const offset = offsetBase * (i + 1) * 0.5;
+            const clampedOffset = Math.min(Math.max(0, offset), 100 * (i + 1));
+            echo.style.transform = `translateY(${clampedOffset}px)`;
+        });
+    }
+}
+
+// Hover Reveal Logic
+if (projectList && projectModal && modalImage) {
+    // Move Modal with Cursor
+    // We bind to document to ensure smooth tracking even if cursor moves fast
+    document.addEventListener('mousemove', (e) => {
+        // Only update if modal is potentially visible or soon to be
+        // Optimization: Check bounds or just update
+        projectModal.style.left = `${e.clientX}px`;
+        projectModal.style.top = `${e.clientY}px`;
+    });
+
+    projectItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const imgUrl = item.getAttribute('data-image');
+            if (imgUrl) {
+                modalImage.src = imgUrl;
+                projectModal.classList.add('active');
+            }
+        });
+
+        item.addEventListener('mouseleave', () => {
+            projectModal.classList.remove('active');
+        });
+    });
+}
+
+// Global Scroll Loop for Echo
+window.addEventListener('scroll', () => {
+    requestAnimationFrame(() => {
+        handleEchoAnimation();
+    });
+});
+handleEchoAnimation(); // Init
+
+// ===================================
+// PAGE TRANSITION LOGIC
+// ===================================
+window.addEventListener('DOMContentLoaded', () => {
+    // 1. Enter Animation:
+    // When page loads, if the body has the transition-overlay, we can trigger the 'enter' animation
+    // But currently CSS is set up so .transition-color is translated 100% (below view).
+    // To make it enter from top (covering) -> top, we need it to start covering.
+    // Let's assume standard flow:
+    // A. Page Unloads -> Overlay sides UP (translateY 0)
+    // B. New Page Loads -> Overlay is THERE (translate 0 or -100%?)
+
+    // Simplest flow: 
+    // Overlay starts at translateY(0) (Covering screen) if we add a class 'loading' to body in HTML
+    // seeing that we dynamically added the div, it starts 'below' per CSS.
+
+    // Let's do this: 
+    // By default CSS: .transition-color { transform: translateY(100%); } -> Sitting below view
+
+    // 2. Click Link ->
+    //    Add class to body -> .is-transitioning-out 
+    //    CSS: .is-transitioning-out .transition-color { transform: translateY(0); } -> Slides UP to cover screen
+    //    Wait 600ms -> window.location = href
+
+    document.querySelectorAll('a[data-transition="true"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            // If it's a hash link on same page, ignore or handle smooth scroll separately
+            if (href.startsWith('#') || href.includes('#')) {
+                // If it's pure hash, regular smooth scroll takes over
+                if (href.startsWith('#')) return;
+                // If it is 'index.html#projects', we might need transition if we are on 'projects.html'
+                const targetPath = href.split('#')[0];
+                const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+                if (targetPath === currentPath) return; // Same page
+            }
+
+            e.preventDefault();
+            document.body.classList.add('is-transitioning-out');
+
+            // Update Text based on destination
+            const textEl = document.querySelector('.transition-text');
+            if (textEl) {
+                if (href.includes('projects.html')) {
+                    textEl.textContent = 'Work';
+                } else if (href.includes('index.html') || href === '/') {
+                    textEl.textContent = 'Home';
+                } else {
+                    textEl.textContent = '';
+                }
+            }
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 1200); // 1.2s Match CSS transition time
+        });
+    });
+
+    // 3. Page Load ->
+    // We want it to feel like it's sliding AWAY (upwards) reveals content
+    // But default CSS is 'below'. 
+    // So immediately on load, we set it to 'covering' (without transition), then transition to 'above' (-100%)
+
+    const overlay = document.querySelector('.transition-color');
+    if (overlay) {
+        // Force it to start 'covering' the screen to pretend we just arrived from the previous slight
+        // But since this is a fresh load, we might flicker if we don't have it in critical CSS.
+        // For now, let's just animate "In" from below? No, standard is swipe UP.
+
+        // Let's try: Overlay starts 'covering' (via inline style or fast JS) -> then slides away.
+        // We simulate 'Arriving':
+
+        // Quick set to covering (0%)
+        overlay.style.transition = 'none';
+        overlay.style.transform = 'translateY(0)';
+
+        // Force reflow
+        overlay.offsetHeight;
+
+        // Now slide UP (-100%)
+        overlay.style.transition = 'transform 1.2s cubic-bezier(0.8, 0, 0.2, 1)';
+        overlay.style.transform = 'translateY(-100%)';
+    }
+});
+
+// ===================================
+// SIGNAL CONTACT INTERACTION
+// ===================================
+// Wrap in a function to avoid global scope pollution if preferred, or just append
+(function initSignalContact() {
+    const signalSection = document.getElementById('contact');
+    const signalCore = document.getElementById('signalCore');
+    const signalNodes = document.getElementById('signalNodes');
+    const signalArea = document.querySelector('.signal-area');
+
+    if (!signalSection || !signalCore || !signalNodes) return;
+
+    // 1. Mouse Interaction (Soft Magnetic Effect)
+    if (signalArea) {
+        signalArea.addEventListener('mousemove', (e) => {
+            const rect = signalArea.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            // Dampen the movement
+            signalCore.style.transition = 'none'; // Instant move
+            signalNodes.style.transition = 'none';
+
+            signalCore.style.transform = `translate(${x * 0.12}px, ${y * 0.12}px)`;
+
+            // Nodes move slightly opposite for depth (parallax)
+            signalNodes.style.transform = `translate(calc(-50% + ${x * 0.03}px), calc(-50% + ${y * 0.03}px))`;
+        });
+
+        signalArea.addEventListener('mouseleave', () => {
+            // Add transition for smooth snap back
+            signalCore.style.transition = 'transform 0.5s ease-out';
+            signalNodes.style.transition = 'transform 0.5s ease-out';
+
+            signalCore.style.transform = 'translate(0, 0)';
+            signalNodes.style.transform = 'translate(-50%, -50%)';
+        });
+    }
+
+    // 2. Hover to Expand / Collapse
+    const handleExpand = () => {
+        signalNodes.classList.add('active');
+        signalCore.classList.add('active');
+    };
+
+    const handleCollapse = () => {
+        signalNodes.classList.remove('active');
+        signalCore.classList.remove('active');
+    };
+
+    signalCore.addEventListener('mouseenter', handleExpand);
+    // Use signalArea for mouseleave so users can reach the nodes without it closing
+    signalArea.addEventListener('mouseleave', handleCollapse);
+
+    // Also keep click for mobile/touch
+    signalCore.addEventListener('click', () => {
+        if (signalNodes.classList.contains('active')) {
+            handleCollapse();
+        } else {
+            handleExpand();
+        }
+    });
+
+    // Auto-expand on hover (optional, user asked for click interaction, but let's make it clickable as primary)
+    // "When user clicks the core" -> Strict requirement.
+
+    // 3. Status Rotator
+    const statusText = document.getElementById('statusText');
+    const statuses = [
+        "Status: Open to projects · Internships · Collaborations",
+        "Status: Currently building cool stuff 🚀",
+        "Status: Learning WebGL & Creative Dev 🎨",
+        "Status: Available for hire 💼"
+    ];
+    let statusIndex = 0;
+
+    if (statusText) {
+        // Add transition for smooth fade
+        statusText.style.transition = 'opacity 0.5s ease';
+
+        setInterval(() => {
+            statusText.style.opacity = 0;
+            setTimeout(() => {
+                statusIndex = (statusIndex + 1) % statuses.length;
+                statusText.textContent = statuses[statusIndex];
+                statusText.style.opacity = 1;
+            }, 500);
+        }, 4000);
+    }
+
+    // 4. Easter Egg Timer
+    const easterEgg = document.getElementById('easterEgg');
+    let eggTimer;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // User is looking at the section
+                eggTimer = setTimeout(() => {
+                    if (easterEgg) easterEgg.classList.add('visible');
+                }, 3000); // 3 seconds wait
+            } else {
+                clearTimeout(eggTimer);
+                if (easterEgg) easterEgg.classList.remove('visible');
+            }
+            // 5. Custom Cursor Logic
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorRing = document.querySelector('.cursor-ring');
+            const interactiveElements = document.querySelectorAll('a, button, .nav-link, .card-wrapper, .signal-core-wrapper, .signal-node');
+
+            let mouseX = 0;
+            let mouseY = 0;
+            let ringX = 0;
+            let ringY = 0;
+            let isMoving = false;
+
+            if (cursorDot && cursorRing) {
+                // Track mouse movement
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+
+                    if (!isMoving) {
+                        isMoving = true;
+                        // Initialize positions on first move
+                        ringX = mouseX;
+                        ringY = mouseY;
+                        cursorDot.style.opacity = '1';
+                        cursorRing.style.opacity = '1';
+                    }
+
+                    // Dot follows instantly
+                    cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+                });
+
+                // Smooth ring movement (Lerp)
+                const animateRing = () => {
+                    // Linear interpolation
+                    // Higher factor = faster, Lower = slower lag
+                    const factor = 0.15;
+
+                    ringX += (mouseX - ringX) * factor;
+                    ringY += (mouseY - ringY) * factor;
+
+                    cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+
+                    requestAnimationFrame(animateRing);
+                };
+                requestAnimationFrame(animateRing);
+
+                // Hover Effects
+                interactiveElements.forEach(el => {
+                    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+                });
+
+                // Dynamic check for new elements (like tooltips or expanded nodes)
+                document.body.addEventListener('mouseover', (e) => {
+                    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('clickable')) {
+                        document.body.classList.add('hovering');
+                    } else {
+                        // Remove if not hovering interactive (though mouseleave above handles specific list)
+                    }
+                });
+            }
+
+        })();
+    }, { threshold: 0.6 });
+
+    if (signalSection) observer.observe(signalSection);
+})();
+
+// ===================================
+// INSANE ANIMATIONS (GSAP + LENIS)
+// ===================================
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Initialize Lenis (Smooth Scroll)
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Integrate with GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // 2. Text Reveals (SplitType)
+    const splitTypes = document.querySelectorAll('.hero-title, .section-title, .project-heading');
+    
+    splitTypes.forEach((char, i) => {
+        const text = new SplitType(char, { types: 'chars' });
+        
+        gsap.from(text.chars, {
+            scrollTrigger: {
+                trigger: char,
+                start: 'top 80%',
+                end: 'top 20%',
+                scrub: false,
+                markers: false
+            },
+            opacity: 0,
+            y: 100, // Move from below
+            rotateX: -90, // 3D rotation
+            stagger: 0.02,
+            duration: 1,
+            ease: 'back.out(1.7)',
+        });
+    });
+
+    // 3. Staggered Fade Up for Content
+    const staggerElements = document.querySelectorAll('.hero-cta, .hero-social-mini, .about-card, .project-item, .skill-item');
+    
+    staggerElements.forEach((el) => {
+        gsap.from(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 85%',
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+        });
+    });
+
+    // 4. Parallax Images/Sections
+    const parallaxSections = document.querySelectorAll('.hero-subject-wrapper, .about-grid, .project-list-container');
+    
+    parallaxSections.forEach(section => {
+        gsap.to(section, {
+            yPercent: -10,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: section,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+    });
+
+    // 5. Ambient Orb Mouse Movement
+    const orbs = document.querySelectorAll('.ambient-orb');
+    
+    document.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        
+        orbs.forEach((orb, i) => {
+            gsap.to(orb, {
+                x: (x - 0.5) * (i + 1) * 100, // Varied movement
+                y: (y - 0.5) * (i + 1) * 100,
+                duration: 2,
+                ease: 'power2.out'
+            });
+        });
+    });
+
+    console.log("Insane Animations Initialized 🚀");
+});
