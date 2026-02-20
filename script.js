@@ -272,7 +272,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // Wait for fade animation to finish then remove from DOM
             setTimeout(() => {
-                loader.style.display = 'none';
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 800);
 
                 // Trigger Hero Reveal Animation
                 if (hero) {
@@ -755,36 +756,19 @@ window.addEventListener('DOMContentLoaded', () => {
 })();
 
 // ===================================
-// INSANE ANIMATIONS (GSAP + LENIS)
+// INSANE ANIMATIONS (GSAP)
 // ===================================
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Initialize Lenis (Smooth Scroll)
-    const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
-        smooth: true,
-        mouseMultiplier: 1,
-        smoothTouch: false,
-        touchMultiplier: 2,
-    });
-
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
 
     // Integrate with GSAP ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
-    
+
     // 2. Text Reveals (SplitType)
-    const splitTypes = document.querySelectorAll('.hero-title, .section-title, .project-heading');
-    
+    const splitTypes = document.querySelectorAll('.hero-branding, .section-title, .project-heading');
+
     splitTypes.forEach((char, i) => {
         const text = new SplitType(char, { types: 'chars' });
-        
+
         gsap.from(text.chars, {
             scrollTrigger: {
                 trigger: char,
@@ -802,25 +786,74 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // 5. Scroll Velocity Marquee
+    const marqueeContent = document.querySelector('.marquee-content');
+
+    if (marqueeContent) {
+        let xPercent = 0;
+        let direction = -1; // -1 = Left (default), 1 = Right
+        let velocity = 0;
+        let speed = 0.02; // Base speed (Very Slow)
+
+        const animateMarquee = () => {
+            // Move by base speed + velocity
+            let moveBy = direction * (speed + Math.abs(velocity));
+
+            xPercent += moveBy;
+
+            // Seamless Loop Logic with GSAP Wrap
+            xPercent = gsap.utils.wrap(-50, 0, xPercent);
+
+            gsap.set(marqueeContent, { xPercent: xPercent });
+
+            // Decay velocity for smooth stop
+            velocity *= 0.90;
+
+            requestAnimationFrame(animateMarquee);
+        };
+
+        requestAnimationFrame(animateMarquee);
+
+        // Capture Scroll Velocity via ScrollTrigger
+        ScrollTrigger.create({
+            trigger: document.body,
+            start: "top top",
+            end: "bottom bottom",
+            onUpdate: (self) => {
+                // Change direction based on scroll
+                // self.direction: 1 = down, -1 = up
+                // If scrolling down (1), we want standard left movement (-1)
+                // If scrolling up (-1), we want reverse right movement (1)
+                direction = self.direction === 1 ? -1 : 1;
+
+                // Get velocity
+                let vel = self.getVelocity(); // pixels/sec
+                // Normalize and apply
+                // Adjust factor to control sensitivity (Lower = Slower reaction)
+                velocity = vel * 0.0001;
+            }
+        });
+    }
+
     // 3. Staggered Fade Up for Content
     const staggerElements = document.querySelectorAll('.hero-cta, .hero-social-mini, .about-card, .project-item, .skill-item');
-    
+
     staggerElements.forEach((el) => {
         gsap.from(el, {
             scrollTrigger: {
                 trigger: el,
                 start: 'top 85%',
             },
-            y: 50,
+            y: 40,
             opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out',
+            duration: 1.2,
+            ease: 'expo.out',
         });
     });
 
     // 4. Parallax Images/Sections
     const parallaxSections = document.querySelectorAll('.hero-subject-wrapper, .about-grid, .project-list-container');
-    
+
     parallaxSections.forEach(section => {
         gsap.to(section, {
             yPercent: -10,
@@ -834,22 +867,55 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 5. Ambient Orb Mouse Movement
-    const orbs = document.querySelectorAll('.ambient-orb');
-    
-    document.addEventListener('mousemove', (e) => {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-        
-        orbs.forEach((orb, i) => {
-            gsap.to(orb, {
-                x: (x - 0.5) * (i + 1) * 100, // Varied movement
-                y: (y - 0.5) * (i + 1) * 100,
-                duration: 2,
+    // 5. Hero Image Mouse Movement (Parallax)
+    const heroImage = document.querySelector('.hero-subject');
+    const heroSection = document.querySelector('.hero');
+
+    if (heroImage && heroSection) {
+        // Initial reveal animation 
+        gsap.to(heroImage, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 2,
+            ease: 'expo.out',
+            delay: 0.8
+        });
+
+        heroSection.addEventListener('mousemove', (e) => {
+            // Normalized coordinates (-1 to 1)
+            const xNorm = (e.clientX / window.innerWidth - 0.5) * 2;
+            const yNorm = (e.clientY / window.innerHeight - 0.5) * 2;
+
+            const rotateY = xNorm * 15;
+            const rotateX = -yNorm * 15;
+            const shadowX = -xNorm * 30;
+            const shadowY = -yNorm * 30;
+
+            gsap.to(heroImage, {
+                x: xNorm * 40,
+                y: yNorm * 40,
+                rotateY: rotateY,
+                rotateX: rotateX,
+                // Add dynamic shadow for 3D depth
+                filter: `brightness(0.9) contrast(1.2) grayscale(0.2) drop-shadow(${shadowX}px ${shadowY}px 40px rgba(0, 0, 0, 0.9))`,
+                duration: 0.8,
                 ease: 'power2.out'
             });
         });
-    });
 
-    console.log("Insane Animations Initialized 🚀");
+        heroSection.addEventListener('mouseleave', () => {
+            gsap.to(heroImage, {
+                x: 0,
+                y: 0,
+                rotateY: 0,
+                rotateX: 0,
+                filter: 'brightness(0.9) contrast(1.2) grayscale(0.2) drop-shadow(0 0 40px rgba(0, 0, 0, 0.8))',
+                duration: 1,
+                ease: 'power3.out'
+            });
+        });
+    }
+
+    console.log("Smooth Animations + Velocity Marquee Initialized 🚀");
 });
