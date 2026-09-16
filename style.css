@@ -403,6 +403,14 @@ a {
     opacity: 1;
 }
 
+.footer-marquee {
+    position: relative;
+    top: auto;
+    transform: rotate(-2deg);
+    margin-top: 5rem;
+    opacity: 1; /* Always visible, not dependent on hero reveal */
+}
+
 .marquee-content {
     display: flex;
     white-space: nowrap;

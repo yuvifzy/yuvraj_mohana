@@ -886,9 +886,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 5. Scroll Velocity Marquee
-    const marqueeContent = document.querySelector('.marquee-content');
+    const marqueeContents = document.querySelectorAll('.marquee-content');
 
-    if (marqueeContent) {
+    if (marqueeContents.length > 0) {
         let xPercent = 0;
         let direction = -1; // -1 = Left (default), 1 = Right
         let velocity = 0;
@@ -903,7 +903,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Seamless Loop Logic with GSAP Wrap
             xPercent = gsap.utils.wrap(-50, 0, xPercent);
 
-            gsap.set(marqueeContent, { xPercent: xPercent });
+            gsap.set(marqueeContents, { xPercent: xPercent });
 
             // Decay velocity for smooth stop
             velocity *= 0.90;
