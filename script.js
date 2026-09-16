@@ -1161,16 +1161,16 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===================================
 if (typeof Lenis !== 'undefined') {
     const lenis = new Lenis({
-        lerp: 0.08, // Buttery smooth interpolation without feeling detached or laggy
-        wheelMultiplier: 1, // Standard wheel speed
+        lerp: 0.1, // Default smooth interpolation
         smoothWheel: true,
     });
 
     lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-    });
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
 
-    gsap.ticker.lagSmoothing(0);
+    requestAnimationFrame(raf);
 }

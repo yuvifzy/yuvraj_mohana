@@ -70,7 +70,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto; /* MUST be auto when using Lenis for smooth scrolling */
     overflow-x: hidden;
 }
 
