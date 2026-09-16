@@ -37,7 +37,7 @@ function renderContactLinks() {
     const signalNodesContainer = document.getElementById('signalNodes');
     if (signalNodesContainer) {
         signalNodesContainer.innerHTML = '';
-        
+
         CONTACT_LINKS.forEach((link, index) => {
             const a = document.createElement('a');
             a.href = link.url;
@@ -48,7 +48,7 @@ function renderContactLinks() {
             a.className = 'signal-node';
             a.style.setProperty('--i', index + 1);
             a.setAttribute('data-label', link.label);
-            
+
             a.innerHTML = `
                 <div class="node-icon">
                     ${link.icon}
@@ -1043,8 +1043,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     techStackBtn.style.display = 'none';
                     techStackMarquee.classList.remove('hidden');
                     techStackMarquee.style.display = 'flex';
-                    
-                    gsap.fromTo(techStackMarquee, 
+
+                    gsap.fromTo(techStackMarquee,
                         { opacity: 0, scale: 0.95, y: 10 },
                         { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'back.out(1.5)' }
                     );
@@ -1064,7 +1064,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     techStackMarquee.style.display = 'none';
                     techStackMarquee.classList.add('hidden');
                     techStackBtn.style.display = 'inline-block';
-                    
+
                     gsap.fromTo(techStackBtn,
                         { opacity: 0, scale: 0.8 },
                         { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(1.5)' }
@@ -1100,7 +1100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const orb = document.getElementById('contactOrb');
     const orbWrapper = document.getElementById('contactOrbWrapper');
     const orbLinksContainer = document.getElementById('orbLinksContainer');
-    
+
     if (!orb || !orbWrapper || !orbLinksContainer) return;
 
     // Toggle expansion
@@ -1129,13 +1129,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Magnetic effect (only if not reduced motion)
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    
+
     if (!prefersReducedMotion.matches) {
         orbWrapper.addEventListener('mousemove', (e) => {
             const rect = orbWrapper.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
             const y = e.clientY - rect.top - rect.height / 2;
-            
+
             // Subtle movement
             gsap.to(orb, {
                 x: x * 0.3,
@@ -1161,10 +1161,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===================================
 if (typeof Lenis !== 'undefined') {
     const lenis = new Lenis({
-        duration: 1.5, // Slower scroll for a more premium, deliberate feel
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-        smooth: true,
-        smoothTouch: false,
+        lerp: 0.08, // Buttery smooth interpolation without feeling detached or laggy
+        wheelMultiplier: 1, // Standard wheel speed
+        smoothWheel: true,
     });
 
     lenis.on('scroll', ScrollTrigger.update);
