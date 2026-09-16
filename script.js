@@ -919,3 +919,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Smooth Animations + Velocity Marquee Initialized 🚀");
 });
+
+// ===================================
+// COPY EMAIL FALLBACK
+// ===================================
+function copyEmail() {
+    const email = 'yuvrajmohana07@gmail.com';
+    navigator.clipboard.writeText(email).then(() => {
+        const toast = document.getElementById('copyToast');
+        if (toast) {
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    }).catch(err => {
+        console.error('Failed to copy email: ', err);
+    });
+}
