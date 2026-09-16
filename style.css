@@ -1592,35 +1592,38 @@ a {
     border-color: rgba(255, 255, 255, 0.3);
 }
 
-.github-placeholder {
+.grid-item .github-placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background: rgba(255, 255, 255, 0.02);
-    color: rgba(255, 255, 255, 0.5);
-    font-family: var(--font-body);
-    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
     font-weight: 500;
-    gap: 1rem;
+    gap: 1.2rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
 }
 
-.github-icon {
+.grid-item .github-icon {
     width: 48px;
     height: 48px;
-    opacity: 0.5;
-    transition: opacity 0.4s ease;
+    opacity: 0.6;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .grid-item:hover .github-placeholder {
-    background: rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .grid-item:hover .github-icon {
-    opacity: 0.9;
+    opacity: 1;
+    transform: translateY(-3px);
 }
 
 .grid-item .project-info {
