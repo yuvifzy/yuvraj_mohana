@@ -103,7 +103,7 @@
             </div>
             <div class="side-detail right" id="ageDetail">
                 <span class="detail-label">Stats</span>
-                <span class="detail-value">18 — 8 PROJECTS SHIPPED</span>
+                <span class="detail-value">18 y/o — 8 PROJECTS SHIPPED</span>
             </div>
         </div>
 
@@ -158,16 +158,16 @@
                             I'm 18, and I ship things.
                         </p>
                         <p class="about-bio">
-                            I've built a salon booking platform with a Supabase-powered admin dashboard, 
-                            an AI-driven productivity workspace with Kanban boards and JWT auth, 
-                            and a cybersecurity honeypot that uses Gemini to generate fake files that keep 
-                            attackers engaged. This portfolio — with its GSAP scroll animations and custom 
+                            I've built a salon booking platform with a Supabase-powered admin dashboard,
+                            an AI-driven productivity workspace with Kanban boards and JWT auth,
+                            and a cybersecurity honeypot that uses Gemini to generate fake files that keep
+                            attackers engaged. This portfolio — with its GSAP scroll animations and custom
                             cursor — is one of those projects too.
                         </p>
                         <p class="about-bio">
-                            My stack leans React, TypeScript, and Python. I pick whatever gets the job done — 
-                            Vite for fast builds, Supabase or PostgreSQL for data, Framer Motion or GSAP 
-                            for animation. I like building things end-to-end: from database schema to 
+                            My stack leans React, TypeScript, and Python. I pick whatever gets the job done —
+                            Vite for fast builds, Supabase or PostgreSQL for data, Framer Motion or GSAP
+                            for animation. I like building things end-to-end: from database schema to
                             deployed frontend.
                         </p>
                     </div>
@@ -175,94 +175,45 @@
 
                 <!-- Right Column: Tech Stack -->
                 <div class="skills-column fade-in">
-                    <h4 class="subsection-title">Tech Stack</h4>
-                    <div class="arcade-chase">
-                        <div class="pacman-yellow"></div>
-                        <div class="pacman-red"></div>
-                    </div>
-                    <div class="skills-grid">
-                        <div class="skill-tag yellow">
-                            JavaScript
-                            <div class="skill-popup">
-                                <p>Used in: <a href="https://dayoneproductivity.vercel.app/#/" target="_blank">DayOne</a>, <a href="https://github.com/yuvifzy/Salon-Website-" target="_blank">Natural Shine</a>, <a href="https://github.com/yuvifzy/BeeHive" target="_blank">BeeHive</a></p>
-                                <a href="#projects" class="popup-btn">View Projects</a>
+                    <div class="tech-stack-container">
+                        <!-- State A: Pill -->
+                        <button id="techStackBtn" class="btn btn-secondary tech-stack-pill">Tech Stack</button>
+                        
+                        <!-- State B: Marquee -->
+                        <div id="techStackMarquee" class="tech-marquee-wrapper hidden">
+                            <button id="techStackClose" class="tech-stack-close" aria-label="Close tech stack">×</button>
+                            <div class="tech-marquee-content">
+                                <!-- First set of icons -->
+                                <img src="https://cdn.simpleicons.org/javascript" alt="JavaScript" class="tech-icon" title="JavaScript">
+                                <img src="https://cdn.simpleicons.org/python" alt="Python" class="tech-icon" title="Python">
+                                <img src="https://cdn.simpleicons.org/react" alt="React" class="tech-icon" title="React">
+                                <img src="https://cdn.simpleicons.org/nextdotjs" alt="Next.js" class="tech-icon" title="Next.js">
+                                <img src="https://cdn.simpleicons.org/nodedotjs" alt="Node.js" class="tech-icon" title="Node.js">
+                                <img src="https://cdn.simpleicons.org/webgl" alt="WebGL" class="tech-icon" title="WebGL">
+                                <img src="https://cdn.simpleicons.org/threedotjs" alt="Three.js" class="tech-icon" title="Three.js">
+                                <img src="https://cdn.simpleicons.org/git" alt="Git" class="tech-icon" title="Git">
+                                <img src="https://cdn.simpleicons.org/vite" alt="Vite" class="tech-icon" title="Vite">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="SQL" class="tech-icon" title="SQL">
+                                <img src="https://cdn.simpleicons.org/supabase" alt="Supabase" class="tech-icon" title="Supabase">
+                                <img src="https://cdn.simpleicons.org/googlegemini" alt="Google Gemini" class="tech-icon" title="Google Gemini">
+                                <img src="https://cdn.simpleicons.org/framer" alt="Framer Motion" class="tech-icon" title="Framer Motion">
+                                
+                                <!-- Duplicate set for infinite loop -->
+                                <img src="https://cdn.simpleicons.org/javascript" alt="JavaScript" class="tech-icon" title="JavaScript">
+                                <img src="https://cdn.simpleicons.org/python" alt="Python" class="tech-icon" title="Python">
+                                <img src="https://cdn.simpleicons.org/react" alt="React" class="tech-icon" title="React">
+                                <img src="https://cdn.simpleicons.org/nextdotjs" alt="Next.js" class="tech-icon" title="Next.js">
+                                <img src="https://cdn.simpleicons.org/nodedotjs" alt="Node.js" class="tech-icon" title="Node.js">
+                                <img src="https://cdn.simpleicons.org/webgl" alt="WebGL" class="tech-icon" title="WebGL">
+                                <img src="https://cdn.simpleicons.org/threedotjs" alt="Three.js" class="tech-icon" title="Three.js">
+                                <img src="https://cdn.simpleicons.org/git" alt="Git" class="tech-icon" title="Git">
+                                <img src="https://cdn.simpleicons.org/vite" alt="Vite" class="tech-icon" title="Vite">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="SQL" class="tech-icon" title="SQL">
+                                <img src="https://cdn.simpleicons.org/supabase" alt="Supabase" class="tech-icon" title="Supabase">
+                                <img src="https://cdn.simpleicons.org/googlegemini" alt="Google Gemini" class="tech-icon" title="Google Gemini">
+                                <img src="https://cdn.simpleicons.org/framer" alt="Framer Motion" class="tech-icon" title="Framer Motion">
                             </div>
                         </div>
-                        <div class="skill-tag yellow">
-                            Python
-                            <div class="skill-popup">
-                                <p>Used in: <a href="https://github.com/yuvifzy/BeeHive" target="_blank">BeeHive</a>, <a href="https://github.com/yuvifzy/StockSense" target="_blank">StockSense</a></p>
-                                <a href="#projects" class="popup-btn">View Projects</a>
-                            </div>
-                        </div>
-                        <div class="skill-tag blue">
-                            React.js
-                            <div class="skill-popup">
-                                <p>Used in: <a href="https://dayoneproductivity.vercel.app/#/" target="_blank">DayOne</a>, <a href="https://github.com/yuvifzy/Salon-Website-" target="_blank">Natural Shine</a>, <a href="https://github.com/yuvifzy/AirSKetch-v2" target="_blank">AirSketch</a></p>
-                                <a href="#projects" class="popup-btn">View Projects</a>
-                            </div>
-                        </div>
-                        <div class="skill-tag blue">
-                            TypeScript
-                            <div class="skill-popup">
-                                <p>Used in: <a href="https://dayoneproductivity.vercel.app/#/" target="_blank">DayOne</a>, <a href="https://github.com/yuvifzy/AirSKetch-v2" target="_blank">AirSketch</a></p>
-                                <a href="#projects" class="popup-btn">View Projects</a>
-                            </div>
-                        </div>
-                        <div class="skill-tag red">
-                            Node.js
-                            <div class="skill-popup">
-                                <p>Used in: <a href="https://github.com/yuvifzy/StockSense" target="_blank">StockSense</a></p>
-                                <a href="#projects" class="popup-btn">View Projects</a>
-                            </div>
-                        </div>
-                        <div class="skill-tag purple">
-                            WebGL
-                            <div class="skill-popup">
-                                <p>Used in: <a href="https://github.com/yuvifzy/yuvraj_mohana" target="_blank">Portfolio</a></p>
-                                <a href="#projects" class="popup-btn">View Projects</a>
-                            </div>
-                        </div>
-                        <div class="skill-tag purple">
-                            Three.js
-                            <div class="skill-popup">
-                                <p>Used in: <a href="https://github.com/yuvifzy/yuvraj_mohana" target="_blank">Portfolio</a></p>
-                                <a href="#projects" class="popup-btn">View Projects</a>
-                            </div>
-                        </div>
-                        <div class="skill-tag green">
-                            Git
-                            <div class="skill-popup">
-                                <p>Used in: All Projects</p>
-                                <a href="#projects" class="popup-btn">View Projects</a>
-                            </div>
-                        </div>
-                        <div class="skill-tag green">
-                            Vite
-                            <div class="skill-popup">
-                                <p>Used in: <a href="https://dayoneproductivity.vercel.app/#/" target="_blank">DayOne</a>, <a href="https://github.com/yuvifzy/Salon-Website-" target="_blank">Natural Shine</a>, <a href="https://github.com/yuvifzy/AirSKetch-v2" target="_blank">AirSketch</a></p>
-                                <a href="#projects" class="popup-btn">View Projects</a>
-                            </div>
-                        </div>
-                        <div class="skill-tag green">
-                            SQL
-                            <div class="skill-popup">
-                                <p>Used in: <a href="https://dayoneproductivity.vercel.app/#/" target="_blank">DayOne</a>, <a href="https://github.com/yuvifzy/Salon-Website-" target="_blank">Natural Shine</a>, <a href="https://github.com/yuvifzy/StockSense" target="_blank">StockSense</a></p>
-                                <a href="#projects" class="popup-btn">View Projects</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Retro Mario Animation -->
-                    <div class="mario-scene">
-                        <div class="mario-layer">
-                            <div class="mario-sprite"></div>
-                        </div>
-                        <div class="obstacle-layer">
-                            <div class="pipe-sprite"></div>
-                            <div class="goomba-sprite"></div>
-                        </div>
-                        <div class="ground-layer"></div>
                     </div>
                 </div>
             </div>
@@ -279,46 +230,71 @@
 
         <div class="project-list-container">
             <div class="project-list">
-                <div class="project-item" data-image="assets/project_dayone.png" data-repo="https://dayoneproductivity.vercel.app/#/">
+                <div class="project-item" data-image="assets/project_dayone.png"
+                    data-repo="https://dayoneproductivity.vercel.app/#/">
                     <div class="project-info">
                         <h3 class="project-name">DayOne</h3>
-                        <p class="project-cat">A team-built productivity workspace with drag-and-drop Kanban boards, real-time analytics via Recharts, and Gemini AI that auto-breaks complex tasks into steps. React + TypeScript frontend, Spring Boot backend, PostgreSQL, JWT auth.</p>
-                        <a href="https://dayoneproductivity.vercel.app/#/" target="_blank" class="project-repo-link">View Live ↗</a>
+                        <p class="project-cat">A team-built productivity workspace with drag-and-drop Kanban boards,
+                            real-time analytics via Recharts, and Gemini AI that auto-breaks complex tasks into steps.
+                            React + TypeScript frontend, Spring Boot backend, PostgreSQL, JWT auth.</p>
+                        <a href="https://dayoneproductivity.vercel.app/#/" target="_blank"
+                            class="project-repo-link">View Live ↗</a>
                     </div>
                 </div>
-                <div class="project-item" data-image="assets/project_naturalshine.png" data-repo="https://github.com/yuvifzy/Salon-Website-">
+                <div class="project-item" data-image="assets/project_naturalshine.png"
+                    data-repo="https://github.com/yuvifzy/Salon-Website-">
                     <div class="project-info">
                         <h3 class="project-name">Natural Shine</h3>
-                        <p class="project-cat">A salon booking site built for a real business in Sharjah. Glassmorphism UI with a booking modal, masonry photo gallery, and a full admin dashboard for managing appointments. React + Vite, Supabase (PostgreSQL + Auth), Framer Motion.</p>
-                        <a href="https://github.com/yuvifzy/Salon-Website-" target="_blank" class="project-repo-link">View on GitHub →</a>
+                        <p class="project-cat">A salon booking site built for a real business in Sharjah. Glassmorphism
+                            UI with a booking modal, masonry photo gallery, and a full admin dashboard for managing
+                            appointments. React + Vite, Supabase (PostgreSQL + Auth), Framer Motion.</p>
+                        <a href="https://github.com/yuvifzy/Salon-Website-" target="_blank"
+                            class="project-repo-link">View on GitHub →</a>
                     </div>
                 </div>
-                <div class="project-item" data-image="assets/project_portfolio.png" data-repo="https://github.com/yuvifzy/BeeHive">
+                <div class="project-item" data-image="assets/project_portfolio.png"
+                    data-repo="https://github.com/yuvifzy/BeeHive">
                     <div class="project-info">
                         <h3 class="project-name">BeeHive</h3>
-                        <p class="project-cat">A cybersecurity honeypot that pretends to be a real Linux server. Attackers SSH in, and BeeHive logs every command, classifies intent (recon/exfil/persistence), and uses Gemini AI to generate convincing fake files. Python, Paramiko, Flask dashboard, SQLite.</p>
-                        <a href="https://github.com/yuvifzy/BeeHive" target="_blank" class="project-repo-link">View on GitHub →</a>
+                        <p class="project-cat">A cybersecurity honeypot that pretends to be a real Linux server.
+                            Attackers SSH in, and BeeHive logs every command, classifies intent
+                            (recon/exfil/persistence), and uses Gemini AI to generate convincing fake files. Python,
+                            Paramiko, Flask dashboard, SQLite.</p>
+                        <a href="https://github.com/yuvifzy/BeeHive" target="_blank" class="project-repo-link">View on
+                            GitHub →</a>
                     </div>
                 </div>
-                <div class="project-item" data-image="assets/project_portfolio.png" data-repo="https://github.com/yuvifzy/AirSKetch-v2">
+                <div class="project-item" data-image="assets/project_portfolio.png"
+                    data-repo="https://github.com/yuvifzy/AirSKetch-v2">
                     <div class="project-info">
                         <h3 class="project-name">AirSketch</h3>
-                        <p class="project-cat">[NEEDS INPUT: Please describe what AirSketch does.] React + TypeScript, Vite, Tailwind CSS.</p>
-                        <a href="https://github.com/yuvifzy/AirSKetch-v2" target="_blank" class="project-repo-link">View on GitHub →</a>
+                        <p class="project-cat">[NEEDS INPUT: Please describe what AirSketch does.] React + TypeScript,
+                            Vite, Tailwind CSS.</p>
+                        <a href="https://github.com/yuvifzy/AirSKetch-v2" target="_blank" class="project-repo-link">View
+                            on GitHub →</a>
                     </div>
                 </div>
-                <div class="project-item" data-image="assets/project_portfolio.png" data-repo="https://github.com/yuvifzy/StockSense">
+                <div class="project-item" data-image="assets/project_portfolio.png"
+                    data-repo="https://github.com/yuvifzy/StockSense">
                     <div class="project-info">
                         <h3 class="project-name">StockSense</h3>
-                        <p class="project-cat">Smart stock suggestions and demand forecasting for Indian kirana (grocery) stores, delivered via WhatsApp. Uses Gemini AI for natural-language parsing of sales data and Facebook Prophet for weekly demand forecasts. FastAPI, PostgreSQL (Supabase).</p>
-                        <a href="https://github.com/yuvifzy/StockSense" target="_blank" class="project-repo-link">View on GitHub →</a>
+                        <p class="project-cat">Smart stock suggestions and demand forecasting for Indian kirana
+                            (grocery) stores, delivered via WhatsApp. Uses Gemini AI for natural-language parsing of
+                            sales data and Facebook Prophet for weekly demand forecasts. FastAPI, PostgreSQL (Supabase).
+                        </p>
+                        <a href="https://github.com/yuvifzy/StockSense" target="_blank" class="project-repo-link">View
+                            on GitHub →</a>
                     </div>
                 </div>
-                <div class="project-item" data-image="assets/project_portfolio.png" data-repo="https://github.com/yuvifzy/yuvraj_mohana">
+                <div class="project-item" data-image="assets/project_portfolio.png"
+                    data-repo="https://github.com/yuvifzy/yuvraj_mohana">
                     <div class="project-info">
                         <h3 class="project-name">Portfolio</h3>
-                        <p class="project-cat">This site. GSAP scroll animations, custom cursor with mix-blend-mode, 3D parallax hero, retro Game Boy tech stack section, and a radial "Start a Signal" contact UI. Vanilla HTML/CSS/JS + GSAP.</p>
-                        <a href="https://github.com/yuvifzy/yuvraj_mohana" target="_blank" class="project-repo-link">View on GitHub →</a>
+                        <p class="project-cat">This site. GSAP scroll animations, custom cursor with mix-blend-mode, 3D
+                            parallax hero, retro Game Boy tech stack section, and a radial "Start a Signal" contact UI.
+                            Vanilla HTML/CSS/JS + GSAP.</p>
+                        <a href="https://github.com/yuvifzy/yuvraj_mohana" target="_blank"
+                            class="project-repo-link">View on GitHub →</a>
                     </div>
                 </div>
             </div>
@@ -371,11 +347,13 @@
                                 <span class="tooltip-desc">For detailed conversations</span>
                             </div>
                         </a>
-                        
+
                         <!-- Copy Email Button (Inline Action) -->
                         <button class="copy-email-btn" id="copyEmailBtn" onclick="copyEmail()">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 6px;">
-                                <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                style="vertical-align: middle; margin-right: 6px;">
+                                <path
+                                    d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
                             </svg>
                             Copy Email
                         </button>
@@ -425,7 +403,8 @@
 
             <div class="signal-status">
                 <span class="status-dot"></span>
-                <span class="status-text" id="statusText">Status: Open to internships, freelance work, and full-time roles</span>
+                <span class="status-text" id="statusText">Status: Open to internships, freelance work, and full-time
+                    roles</span>
             </div>
 
             <p class="signal-cta">Don’t overthink it. Pick a channel and say hi.</p>
