@@ -41,10 +41,8 @@ function renderContactLinks() {
         CONTACT_LINKS.forEach((link, index) => {
             const a = document.createElement('a');
             a.href = link.url;
-            if (link.id !== 'email') {
-                a.target = '_blank';
-                a.rel = 'noopener noreferrer';
-            }
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
             a.className = 'signal-node';
             a.style.setProperty('--i', index + 1);
             a.setAttribute('data-label', link.label);
@@ -83,10 +81,8 @@ function renderContactLinks() {
         CONTACT_LINKS.forEach(link => {
             const a = document.createElement('a');
             a.href = link.url;
-            if (link.id !== 'email') {
-                a.target = '_blank';
-                a.rel = 'noopener noreferrer';
-            }
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
             a.className = 'orb-link-item';
             a.innerHTML = `
                 <div class="orb-link-icon">${link.icon}</div>
