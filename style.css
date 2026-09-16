@@ -1560,6 +1560,79 @@ a {
     color: #fff;
 }
 
+/* Grid View (All Works Page) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0;
+    border-bottom: none;
+}
+
+.grid-item .project-img-static {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+    display: block;
+}
+
+.grid-item:hover .project-img-static {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.grid-item .project-info {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 0.5rem;
+}
+
+.grid-item .project-name {
+    font-size: 1.5rem;
+    text-transform: none;
+    font-weight: 600;
+}
+
+.grid-item .project-cat {
+    font-size: 0.95rem;
+    text-transform: none;
+    letter-spacing: normal;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+/* Override list hover effects for grid */
+.grid-item:hover .project-name,
+.grid-item:hover .project-cat {
+    transform: none;
+    color: inherit;
+}
+
+/* Mobile responsive for grid */
+@media (max-width: 900px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Floating Modal */
 .project-modal {
     position: fixed;

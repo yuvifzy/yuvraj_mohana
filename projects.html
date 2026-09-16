@@ -36,7 +36,7 @@
     <!-- Main Content -->
     <main style="padding-top: 150px; min-height: 100vh;">
         <div class="container">
-            <!-- Header & Toggle -->
+            <!-- Header -->
             <div class="projects-header"
                 style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 5rem; padding: 0 5vw;">
                 <div style="display: flex; gap: 2rem; align-items: baseline;">
@@ -44,36 +44,64 @@
                         data-transition="true">← Back</a>
                     <h1 class="project-heading" style="font-size: 5rem;">All Works</h1>
                 </div>
-
-                <div class="view-toggle">
-                    <button class="toggle-btn active" id="btn-list" aria-label="List View">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" />
-                        </svg>
-                    </button>
-                    <button class="toggle-btn" id="btn-grid" aria-label="Grid View">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M4 4h7v7H4V4zm0 9h7v7H4v-7zm9-9h7v7h-7V4zm0 9h7v7h-7v-7z" />
-                        </svg>
-                    </button>
-                </div>
             </div>
 
-            <!-- Projects (Defaults to List Class) -->
+            <!-- Projects Grid -->
             <div class="project-list-container" id="all-projects-container">
-                <div class="project-list" id="projects-wrapper">
+                <div class="projects-grid" id="projects-wrapper">
 
-                    <!-- Existing Projects -->
-                    <div class="project-item" data-image="assets/project_naturalshine.png" data-repo="https://github.com/yuvifzy/Salon-Website-">
+                    <!-- Project 1: DayOne -->
+                    <div class="project-item grid-item">
+                        <img src="assets/project_dayone.png" class="project-img-static" alt="DayOne">
+                        <div class="project-info">
+                            <h3 class="project-name">DayOne</h3>
+                            <p class="project-cat">A team-built productivity workspace with drag-and-drop Kanban boards, real-time analytics, and Gemini AI.</p>
+                            <a href="https://dayoneproductivity.vercel.app/#/" target="_blank" class="project-repo-link">View Live ↗</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Netherite -->
+                    <div class="project-item grid-item">
+                        <img src="assets/project_netherite.png" class="project-img-static" alt="Netherite">
+                        <div class="project-info">
+                            <h3 class="project-name">Netherite</h3>
+                            <p class="project-cat">A high-performance, cross-platform desktop application built with Tauri and Rust.</p>
+                            <a href="https://github.com/yuvifzy/netherite" target="_blank" class="project-repo-link">View on GitHub →</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Lamhey -->
+                    <div class="project-item grid-item">
+                        <img src="assets/project_lamhey.png" class="project-img-static" alt="Lamhey">
+                        <div class="project-info">
+                            <h3 class="project-name">Lamhey</h3>
+                            <p class="project-cat">A highly interactive web experience featuring 3D elements and smooth scrolling.</p>
+                            <a href="https://lamhey-bakehouse.vercel.app/" target="_blank" class="project-repo-link">View Live ↗</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: AirSketch -->
+                    <div class="project-item grid-item">
+                        <img src="assets/project_airsketch.png" class="project-img-static" alt="AirSketch">
+                        <div class="project-info">
+                            <h3 class="project-name">AirSketch</h3>
+                            <p class="project-cat">An AI-powered drawing and canvas application utilizing on-device machine learning.</p>
+                            <a href="https://github.com/yuvifzy/AirSKetch-v2" target="_blank" class="project-repo-link">View on GitHub →</a>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Natural Shine -->
+                    <div class="project-item grid-item">
                         <img src="assets/project_naturalshine.png" class="project-img-static" alt="Natural Shine">
                         <div class="project-info">
                             <h3 class="project-name">Natural Shine</h3>
-                            <p class="project-cat">A salon booking site built for a real business with a Supabase (PostgreSQL + Auth) admin dashboard and Framer Motion UI.</p>
+                            <p class="project-cat">A salon booking site built for a real business with a Supabase admin dashboard and Framer Motion UI.</p>
                             <a href="https://github.com/yuvifzy/Salon-Website-" target="_blank" class="project-repo-link">View on GitHub →</a>
                         </div>
                     </div>
 
-                    <div class="project-item" data-image="assets/project_portfolio.png" data-repo="https://github.com/yuvifzy/yuvraj_mohana">
+                    <!-- Project 6: Portfolio -->
+                    <div class="project-item grid-item">
                         <img src="assets/project_portfolio.png" class="project-img-static" alt="Portfolio">
                         <div class="project-info">
                             <h3 class="project-name">Portfolio</h3>
@@ -82,7 +110,8 @@
                         </div>
                     </div>
 
-                    <div class="project-item" data-image="assets/project_portfolio.png" data-repo="https://github.com/yuvifzy/BeeHive">
+                    <!-- Project 7: BeeHive -->
+                    <div class="project-item grid-item">
                         <img src="assets/project_portfolio.png" class="project-img-static" alt="BeeHive">
                         <div class="project-info">
                             <h3 class="project-name">BeeHive</h3>
@@ -91,7 +120,8 @@
                         </div>
                     </div>
                     
-                    <div class="project-item" data-image="assets/project_portfolio.png" data-repo="https://github.com/yuvifzy/StockSense">
+                    <!-- Project 8: StockSense -->
+                    <div class="project-item grid-item">
                         <img src="assets/project_portfolio.png" class="project-img-static" alt="StockSense">
                         <div class="project-info">
                             <h3 class="project-name">StockSense</h3>
@@ -105,19 +135,15 @@
         </div>
     </main>
 
-    <!-- Floating Image Modal (Reused) -->
-    <div class="project-modal">
-        <div class="modal-inner">
-            <img src="" alt="Project Preview" id="modal-image">
-            <div class="modal-cursor-view">View</div>
-        </div>
-    </div>
-
     <!-- Page Transition Overlay -->
     <div class="transition-overlay">
         <div class="transition-color"></div>
         <div class="transition-text"></div>
     </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -127,29 +153,6 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Inline script to handle Toggle specifically for this page (or could be in main script)
-        const btnList = document.getElementById('btn-list');
-        const btnGrid = document.getElementById('btn-grid');
-        const wrapper = document.getElementById('projects-wrapper');
-        const container = document.getElementById('all-projects-container');
-
-        if (btnList && btnGrid && wrapper) {
-            btnList.addEventListener('click', () => {
-                wrapper.classList.remove('grid-view');
-                wrapper.classList.add('project-list');
-                btnList.classList.add('active');
-                btnGrid.classList.remove('active');
-            });
-
-            btnGrid.addEventListener('click', () => {
-                wrapper.classList.remove('project-list');
-                wrapper.classList.add('grid-view');
-                btnGrid.classList.add('active');
-                btnList.classList.remove('active');
-            });
-        }
-    </script>
 </body>
 
 </html>
