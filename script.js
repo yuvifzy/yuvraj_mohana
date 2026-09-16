@@ -921,6 +921,58 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ===================================
+// TECH STACK INTERACTION
+// ===================================
+document.addEventListener('DOMContentLoaded', () => {
+    const techStackBtn = document.getElementById('techStackBtn');
+    const techStackMarquee = document.getElementById('techStackMarquee');
+    const techStackClose = document.getElementById('techStackClose');
+
+    if (techStackBtn && techStackMarquee && techStackClose) {
+        // Open Marquee
+        techStackBtn.addEventListener('click', () => {
+            gsap.to(techStackBtn, {
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.3,
+                ease: 'power2.in',
+                onComplete: () => {
+                    techStackBtn.style.display = 'none';
+                    techStackMarquee.classList.remove('hidden');
+                    techStackMarquee.style.display = 'flex';
+                    
+                    gsap.fromTo(techStackMarquee, 
+                        { opacity: 0, scale: 0.95, y: 10 },
+                        { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'back.out(1.5)' }
+                    );
+                }
+            });
+        });
+
+        // Close Marquee
+        techStackClose.addEventListener('click', () => {
+            gsap.to(techStackMarquee, {
+                opacity: 0,
+                scale: 0.95,
+                y: 10,
+                duration: 0.3,
+                ease: 'power2.in',
+                onComplete: () => {
+                    techStackMarquee.style.display = 'none';
+                    techStackMarquee.classList.add('hidden');
+                    techStackBtn.style.display = 'inline-block';
+                    
+                    gsap.fromTo(techStackBtn,
+                        { opacity: 0, scale: 0.8 },
+                        { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(1.5)' }
+                    );
+                }
+            });
+        });
+    }
+});
+
+// ===================================
 // COPY EMAIL FALLBACK
 // ===================================
 function copyEmail() {
