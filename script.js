@@ -1155,3 +1155,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// ===================================
+// SMOOTH SCROLLING (LENIS)
+// ===================================
+if (typeof Lenis !== 'undefined') {
+    const lenis = new Lenis({
+        duration: 1.5, // Slower scroll for a more premium, deliberate feel
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+        smooth: true,
+        smoothTouch: false,
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+}
