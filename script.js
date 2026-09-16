@@ -688,71 +688,73 @@ window.addEventListener('DOMContentLoaded', () => {
                 clearTimeout(eggTimer);
                 if (easterEgg) easterEgg.classList.remove('visible');
             }
-            // 5. Custom Cursor Logic
-            const cursorDot = document.querySelector('.cursor-dot');
-            const cursorRing = document.querySelector('.cursor-ring');
-            const interactiveElements = document.querySelectorAll('a, button, .nav-link, .card-wrapper, .signal-core-wrapper, .signal-node');
-
-            let mouseX = 0;
-            let mouseY = 0;
-            let ringX = 0;
-            let ringY = 0;
-            let isMoving = false;
-
-            if (cursorDot && cursorRing) {
-                // Track mouse movement
-                document.addEventListener('mousemove', (e) => {
-                    mouseX = e.clientX;
-                    mouseY = e.clientY;
-
-                    if (!isMoving) {
-                        isMoving = true;
-                        // Initialize positions on first move
-                        ringX = mouseX;
-                        ringY = mouseY;
-                        cursorDot.style.opacity = '1';
-                        cursorRing.style.opacity = '1';
-                    }
-
-                    // Dot follows instantly
-                    cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-                });
-
-                // Smooth ring movement (Lerp)
-                const animateRing = () => {
-                    // Linear interpolation
-                    // Higher factor = faster, Lower = slower lag
-                    const factor = 0.15;
-
-                    ringX += (mouseX - ringX) * factor;
-                    ringY += (mouseY - ringY) * factor;
-
-                    cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-
-                    requestAnimationFrame(animateRing);
-                };
-                requestAnimationFrame(animateRing);
-
-                // Hover Effects
-                interactiveElements.forEach(el => {
-                    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-                    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-                });
-
-                // Dynamic check for new elements (like tooltips or expanded nodes)
-                document.body.addEventListener('mouseover', (e) => {
-                    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('clickable')) {
-                        document.body.classList.add('hovering');
-                    } else {
-                        // Remove if not hovering interactive (though mouseleave above handles specific list)
-                    }
-                });
-            }
-
-        })();
+        });
     }, { threshold: 0.6 });
 
     if (signalSection) observer.observe(signalSection);
+})();
+
+// ===================================
+// CUSTOM CURSOR LOGIC
+// ===================================
+(function initCursor() {
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorRing = document.querySelector('.cursor-ring');
+    const interactiveElements = document.querySelectorAll('a, button, .nav-link, .card-wrapper, .signal-core-wrapper, .signal-node');
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let ringX = 0;
+    let ringY = 0;
+    let isMoving = false;
+
+    if (cursorDot && cursorRing) {
+        // Track mouse movement
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            if (!isMoving) {
+                isMoving = true;
+                // Initialize positions on first move
+                ringX = mouseX;
+                ringY = mouseY;
+                cursorDot.style.opacity = '1';
+                cursorRing.style.opacity = '1';
+            }
+
+            // Dot follows instantly
+            cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+        });
+
+        // Smooth ring movement (Lerp)
+        const animateRing = () => {
+            // Linear interpolation
+            // Higher factor = faster, Lower = slower lag
+            const factor = 0.15;
+
+            ringX += (mouseX - ringX) * factor;
+            ringY += (mouseY - ringY) * factor;
+
+            cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+
+            requestAnimationFrame(animateRing);
+        };
+        requestAnimationFrame(animateRing);
+
+        // Hover Effects
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+        });
+
+        // Dynamic check for new elements (like tooltips or expanded nodes)
+        document.body.addEventListener('mouseover', (e) => {
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.classList.contains('clickable') || e.target.closest('a') || e.target.closest('button') || e.target.closest('.grid-item')) {
+                document.body.classList.add('hovering');
+            }
+        });
+    }
 })();
 
 // ===================================
