@@ -1643,15 +1643,10 @@ a {
     display: block; /* Since it's now an <a> tag */
     text-decoration: none;
     padding: 3rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
     transition: opacity 0.3s ease;
     position: relative;
     overflow: hidden; /* To contain massive letter spacing if it overflows */
-}
-
-.project-item:last-child {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Dimming effect for non-hovered items */
