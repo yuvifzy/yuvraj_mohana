@@ -445,6 +445,10 @@ a {
     display: inline-block;
 }
 
+.footer-marquee .marquee-content span {
+    opacity: 1;
+}
+
 /* CSS Marquee animation removed in favor of GSAP scroll velocity */
 
 /* Layer 3: Foreground Subject (Cinematic Lighting) */
