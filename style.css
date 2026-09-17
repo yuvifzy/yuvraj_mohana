@@ -406,7 +406,7 @@ a {
 .footer-marquee {
     position: relative;
     top: auto;
-    width: 100vw;
+    width: 120vw;
     left: 50%;
     transform: translateX(-50%) rotate(-2deg);
     margin-top: 5rem;
@@ -2487,9 +2487,7 @@ body.is-transitioning-in .transition-color {
 
 /* Easter Egg */
 .easter-egg-container {
-    position: absolute;
-    bottom: 10rem;
-    right: 2rem;
+    position: relative;
     display: flex;
     gap: 8px;
     opacity: 0;
