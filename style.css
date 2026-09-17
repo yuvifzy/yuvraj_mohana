@@ -2555,20 +2555,18 @@ body.is-transitioning-in .transition-color {
         height: 260px;
     }
 
-    .signal-nodes.active .signal-node:nth-child(1) {
-        transform: translate(-50%, -50%) translate(0, -80px) scale(1);
+    .signal-nodes.active .signal-node::before {
+        width: 80px; 
     }
 
-    .signal-nodes.active .signal-node:nth-child(2) {
-        transform: translate(-50%, -50%) translate(80px, 0) scale(1);
-    }
-
-    .signal-nodes.active .signal-node:nth-child(3) {
-        transform: translate(-50%, -50%) translate(0, 80px) scale(1);
-    }
-
-    .signal-nodes.active .signal-node:nth-child(4) {
-        transform: translate(-50%, -50%) translate(-80px, 0) scale(1);
+    @keyframes node-orbit {
+        from {
+            transform: translate(-50%, -50%) rotate(var(--start-angle)) translate(80px) rotate(calc(0deg - var(--start-angle)));
+        }
+    
+        to {
+            transform: translate(-50%, -50%) rotate(calc(var(--start-angle) + 360deg)) translate(80px) rotate(calc(0deg - var(--start-angle) - 360deg));
+        }
     }
 
     .node-tooltip {

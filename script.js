@@ -41,6 +41,13 @@ function renderContactLinks() {
         CONTACT_LINKS.forEach((link, index) => {
             const a = document.createElement('a');
             a.href = link.url;
+            
+            if (link.id === 'email') {
+                a.setAttribute('aria-label', 'Email me');
+            } else {
+                a.setAttribute('aria-label', `View ${link.label}`);
+            }
+
             a.target = '_blank';
             a.rel = 'noopener noreferrer';
             a.className = 'signal-node';
@@ -57,20 +64,6 @@ function renderContactLinks() {
                 </div>
             `;
             signalNodesContainer.appendChild(a);
-
-            // Re-insert copy email button after the email node
-            if (link.id === 'email') {
-                const copyBtnHtml = `
-                    <button class="copy-email-btn" id="copyEmailBtn" onclick="copyEmail()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 6px;">
-                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
-                        </svg>
-                        Copy Email
-                    </button>
-                    <div class="copy-toast" id="copyToast">Copied! ✓</div>
-                `;
-                signalNodesContainer.insertAdjacentHTML('beforeend', copyBtnHtml);
-            }
         });
     }
 
@@ -1072,23 +1065,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===================================
-// COPY EMAIL FALLBACK
+// COPY EMAIL FALLBACK REMOVED
 // ===================================
-function copyEmail() {
-    const email = 'yuvrajmohana07@gmail.com';
-    navigator.clipboard.writeText(email).then(() => {
-        const toast = document.getElementById('copyToast');
-        if (toast) {
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2000);
-        }
-    }).catch(err => {
-        console.error('Failed to copy email: ', err);
-    });
-}
-
 // ===================================
 // CONTACT ORB INTERACTION
 // ===================================
